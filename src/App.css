@@ -1,0 +1,113 @@
+h1{
+  display: block;
+  color: #8a2be2;
+  margin: 15px;
+}
+
+h4{
+  display: inline-block;
+  margin: 15px;
+  width: (100% - 35px);
+}
+
+div.time{
+  color:#8a2be2;
+  margin-left: 0px;
+  display: inline-block;
+  width: auto;
+  margin: 0px;
+}
+
+form div{
+  display: inline-block;
+  margin: 15px;
+
+}
+
+form input{
+  height: 30px;
+  border: 1.5px solid rgb(201, 201, 201);
+}
+
+.title{
+  width: 95%;
+}
+
+p{
+  margin: 15px;
+  font-size: 22px;
+}
+
+
+form label{
+  display: block;
+  margin: 5px 0px;
+  font-weight: 500;
+}
+
+.title input{
+  display: inline-block;
+  width: 95%;
+  margin: 0px;
+}
+
+form button{
+  display: inline-block;
+  width: 120px;
+  height: 30px;
+  font-weight: bold;
+  background-color: #8a2be2;
+  color: white;
+  border-radius: 2px;
+  border: none;
+  margin: 15px;
+  font-size: 16px;
+}
+
+button:hover{
+  background-color: rgb(168, 116, 218);
+}
+
+.null{
+  font-size: 24px;
+  color: lightgray;
+}
+
+.task-card{
+  display: inline-block;
+  width: calc(100% - 30px);
+  margin: 8px 15px;
+  border: 0.1px solid rgb(243, 243, 243);
+  box-shadow: 2px 2px 8px rgb(241, 241, 241);
+}
+
+.task-card p{
+  margin: 5px 15px;
+  font-size: 22px;
+  word-wrap: break-word;
+
+}
+
+.task-card div{
+  margin: 5px 15px 8px;
+  font-size: 18px;
+}
+
+.icn{
+  color: red;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.task-card .wrapper{
+  text-align: right;
+}
+
+span{
+  color: red;
+  display: block;
+  width: calc(100% - 30px);
+  margin: 15px;
+  text-align: right;
+  cursor: pointer
+}
