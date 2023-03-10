@@ -21,4 +21,9 @@ export interface manager_type{
     getFreeTime: () => time
 }
 
+export interface storage_int{
+    get: () => Task[] | [],
+    put: <T>(tasks: T) => void
+}
+
 export type create_new_task = (info:{title: string, startTime: time, duration: time}) => void

@@ -23,8 +23,7 @@ class Tasks extends React.Component<TasksProps > {
             this.props.tasks.map(t =>{
                 return <div className="task-card" key={t.id} >
                     <p>{t.title}</p>
-                    <div>starts at: <RenderTime time={t.startTime} />  duration: <RenderTime time={t.duration} /></div>
-                    {t.isActive() && <aside>in-progress</aside>}
+                    <div>starts at: <RenderTime time={t.startTime} />  ends in: <RenderTime time={t.duration} /></div>
                     <div className="wrapper" >
                         <Icon onClick={()=>this.props.removeTask(t)} icon="mdi:delete-empty" className="icn" />
                     </div>

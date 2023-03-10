@@ -8,6 +8,7 @@ h4{
   display: inline-block;
   margin: 15px;
   width: (100% - 35px);
+  opacity: 0.6;
 }
 
 div.time{
@@ -82,7 +83,7 @@ button:hover{
 }
 
 .task-card p{
-  margin: 5px 15px;
+  margin: 10px 15px;
   font-size: 22px;
   word-wrap: break-word;
 

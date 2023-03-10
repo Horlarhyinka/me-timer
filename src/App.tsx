@@ -9,12 +9,15 @@ import { time } from './types';
 import { create_new_task } from './types';
 import manager from './manager';
 import { calcTimeLeft } from './getTime';
+import storage from './storage';
 
 function App() {
-  const [tasks, setTasks] = React.useState<Task[]>([])
+  let defaultTasks:Task[] = storage.get() || []
+  const [tasks, setTasks] = React.useState<Task[]>(defaultTasks)
   const createNewTask:create_new_task = (info)=>{
     let free: time = calcTimeLeft(manager.getFreeTime())
-    if((info.duration.hr + (info.duration.min/100)) > (free.hr + (free.min)/100) )return
+    if((info.duration.hr + (info.duration.min/100)) > (free.hr + (free.min)/100) ){
+      return}
     let id = Math.random()
     const newTask = new Task(id, info.title, info.startTime, info.duration)
     manager.addTask(newTask)

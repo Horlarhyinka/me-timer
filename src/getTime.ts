@@ -14,8 +14,18 @@ export let getRealTime = ():time =>{
     return {hr, min}
 }
 
-export let calcTimeLeft = (exhausted: time):time =>({
-     hr: getCurrentTime().hr - exhausted.hr,
-     min: getCurrentTime().min - exhausted.min})
+export let calcTimeLeft = (exhausted: time):time =>{
+    let calc: time = {hr:0, min: 0}
+    let curr: time = getCurrentTime()
+    calc.hr = curr.hr - exhausted.hr
+    let min = curr.min - exhausted.min
+    calc.min = min
+    if(min < 0){
+        calc.min = min + 60
+        calc.hr -= 1
+    }
+
+    return calc
+}
 
 

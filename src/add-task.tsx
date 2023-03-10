@@ -47,7 +47,8 @@ class NewTask extends React.Component<NewTaskProps, NewTaskState> {
             <div>
               <label htmlFor="start" >start time (hrs/min)</label>
               <select name="startTime-hour" onChange={(e)=>{
-                this.setState({startTime:{...this.state.startTime,hr:parseInt(e.target.value)}})
+                let v:number = parseInt(e.target.value)
+                this.setState({startTime:{...this.state.startTime,hr:v}})
               }} >
                 {
                   hrs.map(h =>h >= getRealTime().hr && <option key={h} >{h}</option>)
@@ -73,14 +74,32 @@ class NewTask extends React.Component<NewTaskProps, NewTaskState> {
                 this.setState({duration:{...this.state.startTime,hr:parseInt(e.target.value)}})
               }} >
                 {
-                  hrs.map(h =><option key={h} >{h}</option>)
+                  (()=>{
+                    let hrs:number[] = []
+                    let free = calcTimeLeft(manager.getFreeTime()).hr
+                    for(let i = 0; i <= free; i++){
+                      hrs.push(i)
+                    }
+                    return hrs.map(h =><option key={h} >{h}</option>)
+                  })()
                 }
               </select>
               <select name="duration-minute" onChange={(e)=>{
-                this.setState({duration:{...this.state.startTime, min:parseInt(e.target.value)}})
+                this.setState({duration:{...this.state.duration, min:parseInt(e.target.value)}})
               }}  >
               {
-                  mins.map(m =><option key={m} >{m}</option>)
+                  (()=>{
+                    let lmins: number[] = mins
+                    let free = calcTimeLeft(manager.getFreeTime())
+                    if(free.hr < 1){
+                      let mins: number[] = []
+                      for(let i = 0; i <= free.min; i++){
+                        mins.push(i)
+                      }
+                      lmins = mins
+                    }
+                    return lmins.map(m =><option key={m} >{m}</option>)
+                  })()
                 }
               </select>
             </div>
